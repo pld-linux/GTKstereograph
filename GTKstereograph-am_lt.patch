@@ -1,0 +1,11 @@
+diff -urN GTKstereograph-0.15a/configure.in GTKstereograph-0.15a.new/configure.in
+--- GTKstereograph-0.15a/configure.in	Wed Jun 21 12:38:46 2000
++++ GTKstereograph-0.15a.new/configure.in	Fri Aug 24 14:40:14 2001
+@@ -4,6 +4,8 @@
+ AM_INIT_AUTOMAKE(GTKstereograph, 0.15a)
+ AM_CONFIG_HEADER(config.h)
+ 
++AM_PROG_LIBTOOL
+ AC_ISC_POSIX
+ AC_PROG_CC
+ AM_PROG_CC_STDC
