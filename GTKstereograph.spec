@@ -1,4 +1,5 @@
 Summary:	GTKstereograph, an advanced stereogram generator
+Summary(pl):	GTKstereograph, zaawansowany generator stereogramów
 Name:		GTKstereograph
 Version:	0.15a
 Release:	2
@@ -24,6 +25,19 @@ produces the same output). You do _not_ need any pair of colored
 spectacles to regard them - everyone can learn it.
 
 Authors:
+- -------- Fabian Januszewski <fabian.linux@januszewski.de>
+
+%description -l pl
+GTKstereograph jest graficznym interfejsem u¿ytkownika do aktualnego
+generatora stereogramów. Stereograph jest generatorem stereogramów. 
+Dok³adniej jest to pojedyñczych obrazów stereogramowych (SIS). Jest to
+program, który produkuje dwuwymiarowe obrazy, które wydaj± siê byæ
+trójwymiarowe (surely you know the famous works of "The Magic Eye", 
+Stereograph produces the same output). NIE potrzebujesz wcale pary
+ró¿nokolorowych okularów, aby to zobaczyæ - (prawie) ka¿dy mo¿e siê 
+tego nauczyæ.
+
+Autorzy:
 - -------- Fabian Januszewski <fabian.linux@januszewski.de>
 
 %prep
