@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://download.sourceforge.net/stereograph/%{name}-%{version}.tar.gz
+# Source0-md5:	35c1c42cbee4ba0d7d0d721ea5d3d8ec
 Patch0:		%{name}-am_lt.patch
 URL:		http://stereograph.sourceforge.net/
 BuildRequires:	autoconf
