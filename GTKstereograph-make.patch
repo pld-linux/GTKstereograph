@@ -1,0 +1,69 @@
+--- GTKstereograph-0.18b/GTKstereograph/gtkedit/gedialogs.c.orig	2001-12-17 00:05:39.000000000 +0100
++++ GTKstereograph-0.18b/GTKstereograph/gtkedit/gedialogs.c	2004-04-26 23:42:47.923529677 +0200
+@@ -24,8 +24,8 @@
+ 
+ void help_about_menu (GtkWidget *widget)
+ {
+-  display_dialog("About ...",NAME " - gtk editor\n
+-ge comes with ABSOLUTELY NO WARRANTY - see GPL.");
++  display_dialog("About ...",NAME " - gtk editor\n"
++"ge comes with ABSOLUTELY NO WARRANTY - see GPL.");
+ }
+ 
+ void message ()
+--- GTKstereograph-0.18b/GTKstereograph/gtkedit/Makefile.orig	2003-11-09 23:25:16.000000000 +0100
++++ GTKstereograph-0.18b/GTKstereograph/gtkedit/Makefile	2004-04-26 23:44:24.288249249 +0200
+@@ -11,7 +11,7 @@
+ #DEBUG		= -g -DDEBUG
+ 
+ #CFLAGS		= -DNAME=\"$(NAME)\" $(DEBUG) -Wall -O2 -fno-strength-reduce -falign-loops -ffast-math -fexpensive-optimizations
+-CFLAGS		= -DNAME=\"$(NAME)\" $(DEBUG) -Wall -O2 -fno-strength-reduce -ffast-math -fexpensive-optimizations
++CFLAGS		= -DNAME=\"$(NAME)\" $(DEBUG) -Wall $(OPT) -fno-strength-reduce -ffast-math
+ 
+ #all: init $(PROG) $(LIBSO) $(LIBA)
+ all: $(LIBA)
+--- GTKstereograph-0.18b/GTKstereograph/Makefile.am.orig	2003-11-08 07:30:44.000000000 +0100
++++ GTKstereograph-0.18b/GTKstereograph/Makefile.am	2004-04-26 23:44:49.484162144 +0200
+@@ -14,7 +14,7 @@
+ 	gfxio.c gfxio.h
+ 
+ GTKstereograph_LDADD = \
+-	gtkedit/libgtkedit.a /usr/lib/libjpeg.so /usr/lib/libpng.so /usr/lib/libz.so @GTK_LIBS@
++	gtkedit/libgtkedit.a -ljpeg -lpng -lz @GTK_LIBS@
+ 
+ SUBDIRS = \
+ 	gtkedit
+--- GTKstereograph-0.18b/stereograph/Makefile.orig	2003-11-17 22:29:44.000000000 +0100
++++ GTKstereograph-0.18b/stereograph/Makefile	2004-04-26 23:45:49.821584977 +0200
+@@ -11,13 +11,13 @@
+ # please correct the LDFAGS down there.
+ #
+ 
+-#PREFIX=/usr/local
+-PREFIX=`grep -i "prefix =" ../Makefile | grep -i -v exec | cut -d"=" -f 2`
++PREFIX=/usr
+ 
+ # Linux
+ CC  = gcc
+-CFLAGS = -Wall -O2 -Dlinux -DX11GUI
+-LDFLAGS = -ljpeg -lpng -lz -lm -lX11 -ldl -rdynamic -L/usr/X11R6/lib
++CFLAGS = -Wall $(OPT) -Dlinux -DX11GUI
++LXLIBS = -L/usr/X11R6/lib
++LDFLAGS = -ljpeg -lpng -lz -lm -lX11 -ldl -rdynamic $(LXLIBS)
+ 
+ # HPUX
+ #CC = cc
+--- GTKstereograph-0.18b/stereograph/Makefile.in.orig	2003-11-09 16:33:17.000000000 +0100
++++ GTKstereograph-0.18b/stereograph/Makefile.in	2004-04-26 23:53:57.142841908 +0200
+@@ -14,8 +14,9 @@
+ 
+ 
+ install:
+-	cp stereograph $(PREFIX)/bin/stereograph
+-	cp stereograph.1 $(PREFIX)/man/man1/stereograph.1
++	install -d $(DESTDIR)$(PREFIX)/bin $(DESTDIR)$(PREFIX)/share/man/man1
++	cp stereograph $(DESTDIR)$(PREFIX)/bin/stereograph
++	cp stereograph.1 $(DESTDIR)$(PREFIX)/share/man/man1/stereograph.1
+ 
+ clean:
+ 	rm -f $(OBJ0) *~ stereograph core
