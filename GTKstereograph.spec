@@ -1,14 +1,14 @@
 Summary:	GTKstereograph, an advanced stereogram generator
 Name:		GTKstereograph
 Version:	0.15a
-Release:	1
+Release: 2
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	http://home2.ecore.net/januszewski/linux/stereograph/%{name}-%{version}.tar.gz
 URL:		http://home2.ecore.net/januszewski/linux/stereograph.html
 BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	libpng-devel
+BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
