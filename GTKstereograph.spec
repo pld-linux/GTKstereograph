@@ -5,8 +5,6 @@ Version:	0.17a
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Group(de):	X11/Applikationen/Grafik
-Group(pl):	X11/Aplikacje/Grafika
 Source0:	http://download.sourceforge.net/stereograph/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am_lt.patch
 URL:		http://stereograph.sourceforge.net/
