@@ -5,6 +5,7 @@ Version:	0.15a
 Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
+Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	http://home2.ecore.net/januszewski/linux/stereograph/%{name}-%{version}.tar.gz
 URL:		http://home2.ecore.net/januszewski/linux/stereograph.html
@@ -29,12 +30,12 @@ Authors:
 
 %description -l pl
 GTKstereograph jest graficznym interfejsem u¿ytkownika do aktualnego
-generatora stereogramów. Stereograph jest generatorem stereogramów. 
+generatora stereogramów. Stereograph jest generatorem stereogramów.
 Dok³adniej jest to pojedyñczych obrazów stereogramowych (SIS). Jest to
 program, który produkuje dwuwymiarowe obrazy, które wydaj± siê byæ
-trójwymiarowe (surely you know the famous works of "The Magic Eye", 
+trójwymiarowe (surely you know the famous works of "The Magic Eye",
 Stereograph produces the same output). NIE potrzebujesz wcale pary
-ró¿nokolorowych okularów, aby to zobaczyæ - (prawie) ka¿dy mo¿e siê 
+ró¿nokolorowych okularów, aby to zobaczyæ - (prawie) ka¿dy mo¿e siê
 tego nauczyæ.
 
 Autorzy:
@@ -54,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog NEWS README
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
