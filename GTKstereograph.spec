@@ -1,7 +1,7 @@
 Summary:	GTKstereograph, an advanced stereogram generator
 Name:		GTKstereograph
 Version:	0.15a
-Release: 2
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(pl):	X11/Aplikacje/Grafika
