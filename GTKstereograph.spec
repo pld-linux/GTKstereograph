@@ -8,6 +8,7 @@ Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	http://home2.ecore.net/januszewski/linux/stereograph/%{name}-%{version}.tar.gz
+Patch0:		%{name}-am_lt.patch
 URL:		http://home2.ecore.net/januszewski/linux/stereograph.html
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	libpng >= 1.0.8
@@ -43,8 +44,13 @@ Autorzy:
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+libtoolize -c -f
+aclocal
+automake -a -c
+autoconf
 %configure
 %{__make}
 
