@@ -13,6 +13,9 @@ URL:		http://home2.ecore.net/januszewski/linux/stereograph.html
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
