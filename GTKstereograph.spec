@@ -1,20 +1,20 @@
 Summary:	GTKstereograph, an advanced stereogram generator
 Summary(pl):	GTKstereograph, zaawansowany generator stereogramów
 Name:		GTKstereograph
-Version:	0.17a
-Release:	3
+Version:	0.18b
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Vendor:		Fabian Januszewski <fabian.linux@januszewski.de>
 Source0:	http://dl.sourceforge.net/stereograph/%{name}-%{version}.tar.gz
-# Source0-md5:	35c1c42cbee4ba0d7d0d721ea5d3d8ec
-Patch0:		%{name}-am_lt.patch
+# Source0-md5:	e908e51f16a510275fca656047031130
+Patch0:		%{name}-make.patch
 URL:		http://stereograph.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	libpng >= 1.0.8
-BuildRequires:	libtool
+BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,8 +30,8 @@ spectacles to regard them - everyone can learn it.
 %description -l pl
 GTKstereograph jest graficznym interfejsem u¿ytkownika do aktualnego
 generatora stereogramów. Stereograph jest generatorem stereogramów.
-Dok³adniej jest to generator pojedynczych obrazów stereogramowych (SIS).
-Program ten produkuje dwuwymiarowe obrazy, które wydaj± siê byæ
+Dok³adniej jest to generator pojedynczych obrazów stereogramowych
+(SIS). Program ten produkuje dwuwymiarowe obrazy, które wydaj± siê byæ
 trójwymiarowe (surely you know the famous works of "The Magic Eye",
 Stereograph produces the same output). NIE potrzebujesz wcale pary
 ró¿nokolorowych okularów, aby to zobaczyæ - (prawie) ka¿dy mo¿e siê
@@ -42,13 +42,16 @@ tego nauczyæ.
 %patch0 -p1
 
 %build
-rm -f missing
-%{__libtoolize}
 %{__aclocal}
 %{__automake}
+%{__autoheader}
 %{__autoconf}
 %configure
-%{__make}
+
+%{__make} \
+	CC="%{__cc}" \
+	OPT="%{rpmcflags}" \
+	LXLIBS="-L/usr/X11R6/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -62,4 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/stereograph
 %attr(755,root,root) %{_bindir}/GTKstereograph
+%{_datadir}/stereograph
+%{_mandir}/man1/stereograph.1*
