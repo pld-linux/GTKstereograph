@@ -35,8 +35,8 @@ Authors:
 %description -l pl
 GTKstereograph jest graficznym interfejsem u¿ytkownika do aktualnego
 generatora stereogramów. Stereograph jest generatorem stereogramów.
-Dok³adniej jest to pojedyñczych obrazów stereogramowych (SIS). Jest to
-program, który produkuje dwuwymiarowe obrazy, które wydaj± siê byæ
+Dok³adniej jest to generator pojedynczych obrazów stereogramowych (SIS).
+Program ten produkuje dwuwymiarowe obrazy, które wydaj± siê byæ
 trójwymiarowe (surely you know the famous works of "The Magic Eye",
 Stereograph produces the same output). NIE potrzebujesz wcale pary
 ró¿nokolorowych okularów, aby to zobaczyæ - (prawie) ka¿dy mo¿e siê
