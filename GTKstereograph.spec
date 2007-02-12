@@ -1,5 +1,5 @@
 Summary:	GTKstereograph, an advanced stereogram generator
-Summary(pl.UTF-8):   GTKstereograph, zaawansowany generator stereogramów
+Summary(pl.UTF-8):	GTKstereograph, zaawansowany generator stereogramów
 Name:		GTKstereograph
 Version:	0.18b
 Release:	1
